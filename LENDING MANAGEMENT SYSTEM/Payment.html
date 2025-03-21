@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - Credova Lending</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="BorrowerDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="LoanManagementPage.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li class="active">
+                    <a href="Payment.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="BorrowerAccount.html"><i class="fas fa-user-cog"></i> Account</a>
+                </li>
+                <li>
+                    <a href="Reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+                </li>
+            </ul>
+
+            <li class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user">
+                        <img src="mingyu.jpg" alt="User">
+                        <span>Kim Mingyu</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <h2>Payments</h2>
+                
+                <!-- Payment Summary Cards -->
+                <div class="stats-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Total Outstanding</h4>
+                            <p class="amount">₱35,000.00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Next Due Date</h4>
+                            <p class="amount">April 5, 2025</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Amount Due</h4>
+                            <p class="amount">₱2,500.00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Payment Status</h4>
+                            <p class="amount">On Time</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Make Payment Section -->
+                <div class="section make-payment">
+                    <div class="section-header">
+                        <h3>Make a Payment</h3>
+                    </div>
+                    <div class="payment-content">
+                        <form class="payment-form">
+                            <div class="form-group">
+                                <label for="loan-select">Select Loan</label>
+                                <select id="loan-select" class="form-control">
+                                    <option value="LOAN-2025-001">LOAN-2025-001 - Personal Loan</option>
+                                    <option value="LOAN-2024-045">LOAN-2024-045 - Appliance Loan</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="payment-amount">Payment Amount</label>
+                                <input type="text" id="payment-amount" class="form-control" placeholder="₱2,500.00" value="₱2,500.00">
+                                <p class="form-note">Minimum payment: ₱2,500.00</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Payment Method</label>
+                                <div class="payment-methods">
+                                    <div class="payment-method-option">
+                                        <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" checked>
+                                        <label for="bank-transfer">
+                                            <i class="fas fa-university"></i>
+                                            <span>Bank Transfer</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment-method-option">
+                                        <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+                                        <label for="credit-card">
+                                            <i class="fas fa-credit-card"></i>
+                                            <span>Credit/Debit Card</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment-method-option">
+                                        <input type="radio" id="e-wallet" name="payment-method" value="e-wallet">
+                                        <label for="e-wallet">
+                                            <i class="fas fa-wallet"></i>
+                                            <span>E-Wallet</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Details (Bank Transfer) -->
+                            <div class="payment-details bank-transfer-details">
+                                <div class="form-group">
+                                    <label for="bank-name">Bank Name</label>
+                                    <select id="bank-name" class="form-control">
+                                        <option value="bdo">BDO</option>
+                                        <option value="bpi">BPI</option>
+                                        <option value="metrobank">Metrobank</option>
+                                        <option value="unionbank">UnionBank</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="account-number">Account Number</label>
+                                    <input type="text" id="account-number" class="form-control" placeholder="Enter your account number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="account-name">Account Name</label>
+                                    <input type="text" id="account-name" class="form-control" placeholder="Enter account name">
+                                </div>
+                            </div>
+
+                            <div class="form-action">
+                                <button type="submit" class="btn primary-btn">Complete Payment</button>
+                                <button type="button" class="btn secondary-btn">Save for Later</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Payment History Section -->
+                <div class="section payment-history">
+                    <div class="section-header">
+                        <h3>Payment History</h3>
+                        <div class="filter-controls">
+                            <select id="payment-filter" class="filter-select">
+                                <option value="all">All Payments</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payment ID</th>
+                                    <th>Loan ID</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                    <th>Receipt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PAY-2025-010</td>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Mar 05, 2025</td>
+                                    <td>Bank Transfer</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><a href="#" class="action-btn small">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PAY-2025-009</td>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Feb 05, 2025</td>
+                                    <td>Credit Card</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><a href="#" class="action-btn small">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PAY-2025-008</td>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Jan 05, 2025</td>
+                                    <td>E-Wallet</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><a href="#" class="action-btn small">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PAY-2024-007</td>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Dec 05, 2024</td>
+                                    <td>Bank Transfer</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><a href="#" class="action-btn small">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PAY-2024-006</td>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Nov 05, 2024</td>
+                                    <td>E-Wallet</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><a href="#" class="action-btn small">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn prev" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                        <div class="page-indicators">
+                            <span class="page active">1</span>
+                            <span class="page">2</span>
+                            <span class="page">3</span>
+                        </div>
+                        <button class="pagination-btn next">Next <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Simple script to fix common mobile issues and handle payment method selection -->
+    <script>
+        // Ensure proper viewport height on mobile devices
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Call on load and resize
+        window.addEventListener('load', setViewportHeight);
+        window.addEventListener('resize', setViewportHeight);
+
+        // Handle payment method selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethodInputs = document.querySelectorAll('input[name="payment-method"]');
+            
+            paymentMethodInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    // Hide all payment method details sections
+                    document.querySelectorAll('[class*="-details"]').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                    
+                    // Show the selected payment method details
+                    const selectedMethod = this.value;
+                    const detailsSection = document.querySelector(`.${selectedMethod}-details`);
+                    if (detailsSection) {
+                        detailsSection.style.display = 'block';
+                    }
+                });
+            });
+
+            // Show the default selected payment method details
+            const defaultMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            const defaultDetailsSection = document.querySelector(`.${defaultMethod}-details`);
+            if (defaultDetailsSection) {
+                defaultDetailsSection.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
