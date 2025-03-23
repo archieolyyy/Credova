@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Applications - Credova Lending</title>
+    <link rel="stylesheet" href="LendersDash.css"> <!-- Use the same CSS for consistency -->
+    <link rel="stylesheet" href="LenderLoanApp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation (Same as Dashboard) -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="LendersDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li class="active">
+                    <a href="LenderLoanApp.html"><i class="fas fa-file-alt"></i> Loan Applications</a>
+                </li>
+                <li>
+                    <a href="LendersLoanM.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li>
+                    <a href="LendersPayments.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="LenderBorrowerAcc.html"><i class="fas fa-users"></i> Borrower Accounts</a>
+                </li>
+                <li>
+                    <a href="LenderReports.html"><i class="fas fa-chart-bar"></i> Reports & Notifications</a>
+                </li>
+            </ul>
+
+            <div class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search Loan Applications...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="user">
+                        <img src="mark2.png" alt="Lender User">
+                        <span>Mark Zuckerberg</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="loan-applications-page">
+                <h2>Loan Applications</h2>
+
+                <div class="applications-list">
+                    <!-- Loan Application Item 1 -->
+                    <div class="application-item">
+                        <div class="application-header">
+                            <h3>Application ID: APP-2024-005</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <div class="application-details">
+                            <p><strong>Borrower:</strong> Kim Mingyu</p>
+                            <p><strong>Loan Amount:</strong> ₱25,000.00</p>
+                            <p><strong>Loan Term:</strong> 12 months</p>
+                            <p><strong>Loan Purpose:</strong> Business Expansion</p>
+                        </div>
+                        <div class="application-actions">
+                            <a href="#" class="btn primary-btn view-profile-btn" data-application-id="APP-2024-005">View Borrower Profile</a>
+                            <a href="#" class="btn secondary-btn review-docs-btn" data-application-id="APP-2024-005">Review Documents</a>
+                            <button class="btn approve-btn" data-application-id="APP-2024-005">Approve</button>
+                            <button class="btn reject-btn" data-application-id="APP-2024-005">Reject</button>
+                            <button class="btn request-info-btn" data-application-id="APP-2024-005">Request Info</button>
+                        </div>
+                    </div>
+
+                    <!-- Loan Application Item 2 -->
+                     <div class="application-item">
+                        <div class="application-header">
+                            <h3>Application ID: APP-2024-006</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <div class="application-details">
+                            <p><strong>Borrower:</strong> Barbie Santos</p>
+                            <p><strong>Loan Amount:</strong> ₱10,000.00</p>
+                            <p><strong>Loan Term:</strong> 6 months</p>
+                            <p><strong>Loan Purpose:</strong> Personal</p>
+                        </div>
+                        <div class="application-actions">
+                            <a href="#" class="btn primary-btn view-profile-btn" data-application-id="APP-2024-006">View Borrower Profile</a>
+                            <a href="#" class="btn secondary-btn review-docs-btn" data-application-id="APP-2024-006">Review Documents</a>
+                            <button class="btn approve-btn" data-application-id="APP-2024-006">Approve</button>
+                            <button class="btn reject-btn" data-application-id="APP-2024-006">Reject</button>
+                            <button class="btn request-info-btn" data-application-id="APP-2024-006">Request Info</button>
+                        </div>
+                    </div>
+
+                    <!-- More Application Items Here -->
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Borrower Profile Modal -->
+    <div id="borrowerProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Borrower Profile</h2>
+            <div id="borrowerProfileContent">
+                <!-- Borrower Profile Details Will Be Loaded Here -->
+                <p>Loading profile...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Review Modal -->
+    <div id="documentReviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Required Documents</h2>
+            <div id="documentReviewContent">
+                <!-- Document Links/Previews Will Be Loaded Here -->
+                <p>Loading documents...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Modal Handling (Basic Example)
+        const viewProfileButtons = document.querySelectorAll('.view-profile-btn');
+        const reviewDocsButtons = document.querySelectorAll('.review-docs-btn');
+        const borrowerProfileModal = document.getElementById('borrowerProfileModal');
+        const documentReviewModal = document.getElementById('documentReviewModal');
+        const closeButtons = document.querySelectorAll('.close-button');
+
+        // Function to open a modal
+        function openModal(modal) {
+            modal.style.display = 'block';
+        }
+
+        // Function to close a modal
+        function closeModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Event listeners for "View Borrower Profile" buttons
+        viewProfileButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const applicationId = this.dataset.applicationId;
+                // AJAX call to fetch borrower profile data based on applicationId
+                // For now, let's just display the modal
+                openModal(borrowerProfileModal);
+            });
+        });
+
+        // Event listeners for "Review Documents" buttons
+        reviewDocsButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const applicationId = this.dataset.applicationId;
+                // AJAX call to fetch document URLs/previews based on applicationId
+                // For now, let's just display the modal
+                openModal(documentReviewModal);
+            });
+        });
+
+        // Event listeners for close buttons
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                closeModal(modal);
+            });
+        });
+
+        // Close modals if clicked outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target == borrowerProfileModal) {
+                closeModal(borrowerProfileModal);
+            }
+            if (event.target == documentReviewModal) {
+                closeModal(documentReviewModal);
+            }
+        });
+    </script>
+</body>
+</html>

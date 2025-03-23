@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Management - Credova Lending</title>
+    <link rel="stylesheet" href="LendersDash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation (Same as Dashboard) -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="LendersDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="LenderLoanApp.html"><i class="fas fa-file-alt"></i> Loan Applications</a>
+                </li>
+                <li class="active">
+                    <a href="LendersLoanM.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li>
+                    <a href="LendersPayments.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="LenderBorrowerAcc.html"><i class="fas fa-users"></i> Borrower Accounts</a>
+                </li>
+                <li>
+                    <a href="LenderReports.html"><i class="fas fa-chart-bar"></i> Reports & Notifications</a>
+                </li>
+            </ul>
+
+            <div class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search Loans...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="user">
+                        <img src="mark2.png" alt="Lender User">
+                        <span>Mark Zuckerberg</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="loan-management">
+                <h2>Loan Management</h2>
+
+                <fieldset class="active-loans-fieldset">
+                    <legend>Active Loans</legend>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Loan ID</th>
+                                    <th>Borrower</th>
+                                    <th>Amount</th>
+                                    <th>Term (Months)</th>
+                                    <th>Interest Rate</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LOAN-2024-101</td>
+                                    <td>Kim Mingyu</td>
+                                    <td>₱20,000.00</td>
+                                    <td>12</td>
+                                    <td>10%</td>
+                                    <td>Apr 15, 2025</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td class="action-buttons-cell">
+                                        <button class="action-btn view-repayment">View Repayment</button>
+                                        <button class="action-btn modify-interest">Modify Interest</button>
+                                        <button class="action-btn apply-penalty">Apply Penalty</button>
+                                        <button class="action-btn early-settlement">Early Settlement</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>LOAN-2024-102</td>
+                                    <td>Barbie Santos</td>
+                                    <td>₱10,000.00</td>
+                                    <td>6</td>
+                                    <td>12%</td>
+                                    <td>Apr 22, 2025</td>
+                                    <td><span class="status overdue">Overdue</span></td>
+                                    <td class="action-buttons-cell">
+                                        <button class="action-btn view-repayment">View Repayment</button>
+                                        <button class="action-btn modify-interest">Modify Interest</button>
+                                        <button class="action-btn apply-penalty">Apply Penalty</button>
+                                        <button class="action-btn early-settlement">Early Settlement</button>
+                                    </td>
+                                </tr>
+                                <!-- More Loan Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+
+                <!-- Loan Repayment Schedule (Initially Hidden) -->
+                <div class="modal repayment-schedule hidden">
+                    <div class="modal-content">
+                        <h3>Loan Repayment Schedule</h3>
+                        <button class="close-button"><i class="fas fa-times"></i></button>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Payment #</th>
+                                        <th>Due Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Jan 15, 2025</td>
+                                        <td>₱1,833.33</td>
+                                        <td><span class="status paid">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Feb 15, 2025</td>
+                                        <td>₱1,833.33</td>
+                                        <td><span class="status paid">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Mar 15, 2025</td>
+                                        <td>₱1,833.33</td>
+                                        <td><span class="status overdue">Overdue</span></td>
+                                    </tr>
+                                    <!-- More Payment Rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interest Rate Modification Form (Initially Hidden) -->
+                <div class="modal modify-interest-form hidden">
+                    <div class="modal-content">
+                        <h3>Modify Interest Rate</h3>
+                        <button class="close-button"><i class="fas fa-times"></i></button>
+                        <form>
+                            <div class="form-group">
+                                <label for="new-interest-rate">New Interest Rate (%)</label>
+                                <input type="number" id="new-interest-rate" placeholder="Enter new rate" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest-change-reason">Reason for Change</label>
+                                <textarea id="interest-change-reason" placeholder="Explain the reason for the rate change"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Update Interest Rate</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Apply Penalty Form (Initially Hidden) -->
+                <div class="modal apply-penalty-form hidden">
+                    <div class="modal-content">
+                        <h3>Apply Penalty</h3>
+                        <button class="close-button"><i class="fas fa-times"></i></button>
+                        <form>
+                            <div class="form-group">
+                                <label for="penalty-amount">Penalty Amount (₱)</label>
+                                <input type="number" id="penalty-amount" placeholder="Enter penalty amount" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="penalty-reason">Reason for Penalty</label>
+                                <textarea id="penalty-reason" placeholder="Explain the reason for the penalty"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Apply Penalty</button>
+                        </form>
+                    </div>
+                </div>
+
+                 <!-- Early Loan Settlement Form (Initially Hidden) -->
+                 <div class="modal early-settlement-form hidden">
+                    <div class="modal-content">
+                        <h3>Early Loan Settlement</h3>
+                        <button class="close-button"><i class="fas fa-times"></i></button>
+                        <form>
+                            <p>Confirm early settlement for this loan? The interest will be adjusted accordingly.</p>
+                            <div class="form-group">
+                                <label for="settlement-amount">Settlement Amount (₱)</label>
+                                <input type="number" id="settlement-amount" placeholder="Enter settlement amount" step="0.01">
+                            </div>
+                            <button type="submit" class="btn primary-btn">Confirm Settlement</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Overlay Element -->
+    <div class="modal-overlay hidden"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to show a modal form
+            function showModal(modalClass) {
+                const modal = document.querySelector(modalClass);
+                const overlay = document.querySelector('.modal-overlay');
+                modal.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            }
+
+            // Function to hide all modal forms
+            function hideAllModals() {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.add('hidden');
+                });
+                document.querySelector('.modal-overlay').classList.add('hidden');
+            }
+
+            // Event listeners for "View Repayment" buttons
+            document.querySelectorAll('.action-btn.view-repayment').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    hideAllModals(); // Close any open modals
+                    showModal('.repayment-schedule'); // Show the repayment schedule modal
+                });
+            });
+
+            // Event listeners for "Modify Interest" buttons
+            document.querySelectorAll('.action-btn.modify-interest').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    hideAllModals(); // Close any open modals
+                    showModal('.modify-interest-form'); // Show the modify interest form modal
+                });
+            });
+
+             // Event listeners for "Apply Penalty" buttons
+             document.querySelectorAll('.action-btn.apply-penalty').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    hideAllModals(); // Close any open modals
+                    showModal('.apply-penalty-form'); // Show the apply penalty form modal
+                });
+            });
+
+            // Event listeners for "Early Settlement" buttons
+            document.querySelectorAll('.action-btn.early-settlement').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    hideAllModals(); // Close any open modals
+                    showModal('.early-settlement-form'); // Show the early settlement form modal
+                });
+            });
+                
+            // Event listeners for close buttons
+            document.querySelectorAll('.close-button').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    hideAllModals(); // Hide all modal forms
+                });
+            });
+        });
+
+        // Ensure proper viewport height on mobile devices
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        // Call on load and resize
+        window.addEventListener('load', setViewportHeight);
+        window.addEventListener('resize', setViewportHeight);
+    </script>
+</body>
+</html>

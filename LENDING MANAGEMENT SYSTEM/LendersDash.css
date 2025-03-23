@@ -1,0 +1,1310 @@
+/* General Styles */
+:root {
+    --primary-color: #0c243b; /* Dark Slate Gray */
+    --secondary-color: #ECF0F1; /* Light Gray */
+    --text-color: #2C3E50; /* Dark Blue Gray */
+    --accent-color: #7F8C8D; /* Gray */
+    --success-color: #27AE60; /* Emerald Green */
+    --pending-color: #F39C12; /* Orange */
+    --rejected-color: #C0392B; /* Dark Red */
+    --warning-color: #E67E22; /* Carrot Orange */
+    --card-bg-color: #FAFAFA; /* Very Light Gray */
+    --welcome-bg-color: #E5E8E9; /* Slightly darker light gray for welcome banner */
+    --font-main: 'Poppins', sans-serif;
+}
+
+/* Reset and Basic Styles (same as borrower, can be in a shared stylesheet) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: #F4F6F8;
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    width: 250px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo img {
+    width: 45px;
+    margin-right: 12px;
+}
+
+.sidebar .logo h1 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.sidebar .nav-links {
+    list-style: none;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .nav-links li {
+    margin-bottom: 18px;
+}
+
+.sidebar .nav-links a {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar .nav-links a:hover,
+.sidebar .nav-links li.active a {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar .nav-links a i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+}
+
+.sidebar .logout a {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+    border: 2px solid var(--secondary-color);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    margin-left: 250px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.search-container button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-container button:hover {
+    background-color: #253443; /* Darken primary on hover */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .notifications {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.user-info .notifications i {
+    font-size: 20px;
+    color: var(--accent-color);
+}
+
+.user-info .notifications .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #E74C3C; /* Red */
+    color: white;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+
+.user-info .user {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .user img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.user-info .user span {
+    font-size: 16px;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    padding: 30px;
+}
+
+.dashboard h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+/* Updated welcome banner with light gray background */
+.welcome-banner {
+    background-color: var(--welcome-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.welcome-banner h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.welcome-banner p {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* Updated card style with light gray background */
+.card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.card-content {
+    width: 100%;
+}
+
+.card-content h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: var(--accent-color);
+}
+
+.card-content .amount {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.card-content .card-subtitle {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin-top: 5px;
+}
+
+.card-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.card-content a:hover {
+    text-decoration: underline;
+}
+
+/* Alert Section Styles - Updated with light bg */
+.alert-section {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.alerts-container {
+    padding: 15px 25px 25px;
+}
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.alert:last-child {
+    margin-bottom: 0;
+}
+
+.alert.warning {
+    background-color: rgba(230, 126, 34, 0.1); /* Light Carrot Orange */
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-icon {
+    color: var(--warning-color);
+    font-size: 24px;
+    margin-right: 15px;
+    padding-top: 3px;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-content h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.alert-content p {
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.alert-action {
+    margin-left: 15px;
+}
+
+.alert-action .btn.small-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.alert-action .btn.small-btn:hover {
+    background-color: #D35400; /* Darker Carrot Orange */
+}
+
+/* Dashboard Sections Layout */
+.dashboard-sections {
+    display: grid;
+    grid-template-columns: 1fr; /* Changed to single column */
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* Section Styles - Updated with light bg */
+.section {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* .loan-applications {  removed these, as they force 2 columns
+    grid-column: span 2;
+}
+
+.credit-score-tracker {
+    grid-column: span 1;
+}
+
+.payment-history {
+    grid-column: span 1;
+} */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.section-header h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.section-header .view-all {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 16px;
+}
+
+.section-header .view-all:hover {
+    color: #253443; /* Darken primary on hover */
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    padding: 0 25px 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.status.pending {
+    background-color: var(--pending-color);
+}
+
+.status.approved {
+    background-color: var(--success-color);
+}
+
+.status.rejected {
+    background-color: var(--rejected-color);
+}
+
+.status.completed {
+    background-color: #3498db;
+}
+
+.action-btn {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    transition: background-color 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Quick Actions Styles */
+.quick-actions {
+    padding: 30px;
+    text-align: center;
+}
+
+.quick-actions h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.btn.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn.primary-btn:hover {
+    background-color: #253443; /* Darken primary on hover */
+}
+
+.btn.secondary-btn {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.btn.secondary-btn:hover {
+    background-color: #606e70; /* Darken accent on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .sidebar .logo {
+        margin-bottom: 20px;
+    }
+
+    .sidebar .nav-links {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .sidebar .nav-links li {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .sidebar .nav-links a {
+        padding: 10px 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .dashboard h2 {
+        font-size: 24px;
+    }
+
+    .stats-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .dashboard-sections {
+        grid-template-columns: 1fr;
+    }
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-container {
+        margin-bottom: 10px;
+    }
+}
+
+/* Custom Credit Score Tracker Styles */
+.top-borrowers .table-container {
+  padding: 0 25px 25px;
+}
+
+.top-borrowers table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.top-borrowers th,
+.top-borrowers td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-borrowers th {
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+.top-borrowers tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Import the base styles from LendersDash.css */
+@import url("LendersDash.css");
+
+/* Additional styles for Loan Management */
+.loan-management {
+    padding: 30px;
+}
+
+.loan-management h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+/* Active Loans Styles */
+.active-loans-fieldset {
+    border: 1px solid #ddd;  /* Subtle border for fieldset */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.active-loans-fieldset legend {
+    font-size: 22px;
+    color: var(--primary-color);
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+/* Loan Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    background-color: #f8f9fa; /* Light background for the table */
+    border-radius: 10px;
+    border-spacing: 0;
+     border: 3px solid #b1b0b4;
+     overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Status Styles */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.status.active {
+    background-color: var(--success-color);
+}
+
+.status.overdue {
+    background-color: var(--rejected-color);
+}
+
+.status.paid {
+    background-color: #3498db;
+}
+
+/* Action Button Styles */
+.action-buttons-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Make buttons fill the width */
+}
+
+.action-btn {
+    display: block;  /* Make buttons block level */
+    padding: 8px 12px;
+    margin: 3px 0; /* Add margin only top and bottom */
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    transition: background-color 0.2s ease;
+    background-color: transparent; /* Default background */
+    font-size: 14px;  /* Adjust font size */
+    text-align: center;  /* Center text */
+    width: 100%; /* Occupy full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Modal Styles (Hidden by Default) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    z-index: 999;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+}
+
+
+/* Hidden Class */
+.hidden {
+    display: none !important;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--font-main); /* Consistent font */
+}
+
+/* Close Button Styles */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Responsive Table */
+.table-container {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 95%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LendersPayments.css */
+
+/* Import main dashboard styles for consistency */
+/* @import "LendersDash.css";  You don't need this, as you're linking LendersDash.css directly */
+
+/* Specific styles for the payments section */
+
+/* Overdue Payments Table */
+.overdue-payments .table-container {
+    overflow-x: auto;
+}
+
+.overdue-payments table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.overdue-payments th,
+.overdue-payments td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.overdue-payments th {
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+.overdue-payments tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Manual Payment Adjustments Form */
+.payment-adjustments .adjustment-form {
+    padding: 20px;
+}
+
+.payment-adjustments .form-group {
+    margin-bottom: 15px;
+}
+
+.payment-adjustments label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.payment-adjustments input[type="text"],
+.payment-adjustments input[type="number"],
+.payment-adjustments select,
+.payment-adjustments textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--font-main);
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+.payment-adjustments textarea {
+    resize: vertical; /* Allows vertical resizing */
+}
+
+.payment-adjustments button[type="submit"] {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+}
+
+.payment-adjustments button[type="submit"]:hover {
+    background-color: #253443; /* Darken primary on hover */
+}
+
+/* Payment Report Summary */
+.report-summary .report-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.report-summary .report-item {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.report-summary h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.report-summary .amount {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Import styles from LenderDash.css */
+@import url('LendersDash.css');
+
+/* Add or override styles for LenderBorrowerAcc.html */
+
+.borrower-accounts {
+    padding: 30px;
+}
+
+.borrower-accounts h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.borrower-list {
+    display: flex; /* Horizontal layout */
+    flex-direction: column;
+    gap: 25px;
+}
+
+.borrower-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Header - contains summary and expand button */
+.borrower-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.borrower-summary {
+  display: flex;
+  align-items: center;
+}
+
+.borrower-summary img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.borrower-summary h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Expand Button */
+.borrower-header .expand-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--accent-color);
+    transition: color 0.2s ease;
+    padding: 0; /* Remove padding */
+}
+
+.borrower-header .expand-button:hover {
+    color: var(--primary-color);
+}
+
+/* Core Borrower Details */
+.borrower-details {
+    padding: 20px 25px;
+}
+
+.borrower-details p {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* Loan History Section */
+.borrower-loan-history {
+    padding: 0 25px 25px;
+}
+
+.borrower-loan-history h4 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.borrower-loan-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.borrower-loan-history th,
+.borrower-loan-history td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.borrower-loan-history th {
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+/* Risk Level Styling */
+.borrower-details select[name="risk-level"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: auto;
+    max-width: 150px; /* Adjust as needed */
+    margin-top: 5px;
+}
+
+/* Styles for Collapsing/Expanding Loan History */
+.borrower-loan-history.collapsed {
+    display: none;
+}
+
+/* Responsive adjustments can be added here as needed */
+@media (max-width: 768px) {
+  .borrower-list {
+        width: 100%;
+    }
+    .borrower-card {
+        width: 100%; /* Fill available width */
+        max-width: none; /* Remove maximum width */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LenderReports.css */
+
+.report-sections {
+    display: grid;
+    grid-template-columns: 1fr;  /* Stack report sections */
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.section {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between; /* Align title and "view all" */
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.section-header h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.section-header .view-all {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 16px;
+}
+
+.section-header .view-all:hover {
+    color: #253443;  /* Darken primary color on hover */
+}
+
+/* Report Content Styles */
+.report-content {
+    padding: 20px 25px;
+}
+
+.summary-item {
+    margin-bottom: 15px;
+}
+
+.summary-item h4 {
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.summary-item .amount {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Credit Risk Report Styles */
+.risk-category {
+    margin-bottom: 15px;
+}
+
+.risk-category h4 {
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+/* Fund Allocation Report Styles */
+.allocation-item {
+    margin-bottom: 15px;
+}
+
+.allocation-item h4 {
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    padding: 0 25px 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Notification Settings Styles */
+.notification-content {
+    padding: 20px 25px;
+    text-align: center;
+}
+
+.notification-content p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* General Button Styling (Inherited from LendersDash.css) */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.btn.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn.primary-btn:hover {
+    background-color: #253443; /* Darken primary on hover */
+}
+
+.btn.secondary-btn {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.btn.secondary-btn:hover {
+    background-color: #606e70; /* Darken accent on hover */
+}
+
+.report-footer{
+    text-align: right;
+    padding: 10px 25px;
+}

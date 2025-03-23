@@ -1,0 +1,368 @@
+/* lenders.css */
+
+/* === Reset and Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #F8F9FA;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-page,
+.login-page {
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* === Reusable Button Styles === */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #162e6b;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #9CA3AF;
+    pointer-events: none;
+}
+
+/* === Shared Layout Styles === */
+
+.registration-container,
+.login-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    margin: 0 auto; /* Center horizontally */
+    padding: 40px;  /* Add padding around the content */
+    box-sizing: border-box;
+}
+
+.registration-card,
+.login-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+.registration-header,
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    height: 80px; /* Adjust as needed */
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.registration-header h2,
+.login-header h2 {
+    color: #1E3A8A;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.registration-header p,
+.login-header p {
+    color: #6B7280;
+    font-size: 0.95rem;
+}
+
+.registration-form,
+.login-form {
+    flex: 1;
+}
+
+.form-section-title {
+    color: #1E3A8A;
+    font-size: 1.2rem;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between; /* Space out form groups */
+}
+
+.form-row .form-group {
+    flex: 1;
+    width: 48%; /* Account for the space between, so we won't overflow the form */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    color: #4B5563;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1E3A8A;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+}
+
+.form-group input[type="date"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-container {
+    margin: 30px 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    accent-color: #1E3A8A;
+    width: auto;
+}
+
+.checkbox-container label {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.text-link {
+    color: #1E3A8A;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+.registration-footer,
+.login-footer {
+    margin-top: 24px;
+    text-align: center;
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+.registration-footer a,
+.login-footer a {
+    color: #1E3A8A;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registration-footer a:hover,
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* === Lender Login Page Specific Styles === */
+
+body.lender-login {
+    background-color: #e9ecef;
+}
+
+.lender-login .login-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 600px; /* Set a minimum height for the container */
+}
+
+.lender-login .login-card {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lender-login .login-container .login-info {
+    flex: 1;
+    background-color: #1E3A8A;
+    color: white;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.lender-login .info-content {
+    max-width: 400px;
+}
+
+.lender-login .info-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.lender-login .info-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.lender-login .info-content ul {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.lender-login .info-content li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.lender-login .support-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lender-login .support-info p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Adjust Vertically center icons with input fields on lender */
+body.lender-login .form-group .input-with-icon .input-icon {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body.lender-login .form-group .input-with-icon input {
+    padding-left: 36px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body.lender-login .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+body.lender-login .login-form .btn-primary {  /* Apply styles to the button inside the form */
+    width: 150PX;             /* Remove any full-width settings */
+    padding: 12px 24px;      /* Set appropriate padding */
+    display: block;         /* block or inline-block to center */
+    margin: 20px auto;       /* Center the button horizontally (top/bottom right/left) */
+    text-align: center;     /* Center the text */
+  }
+
+  /* Remove for lenders, and only for lenders*/
+  body.lender-login .registration-card, .login-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+  }
+
+/* Lender Registration Styles  (Keep for general look, but override the full screen */
+.registration-page {
+    background-color: #F8F9FA;
+    min-height: 100vh; /* Fills the screen vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.registration-container {
+  width: 100%;  /* Fills available width */
+  max-width: 1000px;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+  margin: 0 auto;  /* Centers the container */
+  box-sizing: border-box; /* Account for padding/border */
+  padding: 40px;
+}
+
+/* Vertically center icons with input fields */
+.form-group .input-with-icon .input-icon {
+    top: 50%;
+    transform: translateY(-50%); /* Accurately centers the icon */
+}
+
+/* Adjust input to accommodate the icon */
+.form-group .input-with-icon input {
+    padding-left: 36px; /* Make sure to account for space */
+    width: 100%;   /* Take up the remaining space */
+    box-sizing: border-box;
+}

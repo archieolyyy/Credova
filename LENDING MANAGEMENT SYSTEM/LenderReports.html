@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lender Reports & Notifications - Credova Lending</title>
+    <link rel="stylesheet" href="LendersDash.css"> <!-- Use existing dashboard CSS for consistency -->
+    <link rel="stylesheet" href="LenderReports.css"> <!-- New CSS for reports-specific styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="LendersDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="LenderLoanApp.html"><i class="fas fa-file-alt"></i> Loan Applications</a>
+                </li>
+                <li>
+                    <a href="LendersLoanM.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li>
+                    <a href="LendersPayments.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="LenderBorrowerAcc.html"><i class="fas fa-users"></i> Borrower Accounts</a>
+                </li>
+                <li class="active">
+                    <a href="LenderReports.html"><i class="fas fa-chart-bar"></i> Reports & Notifications</a>
+                </li>
+            </ul>
+
+            <div class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="user">
+                        <img src="mark2.png" alt="Lender User">
+                        <span>Mark Zuckerberg</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <h2>Reports & Notifications</h2>
+
+                <div class="report-sections">
+                    <div class="section">
+                        <div class="section-header">
+                            <h3>Loan Portfolio Summary</h3>
+                            <!-- Add options for date range/filtering -->
+                        </div>
+                        <div class="report-content">
+                            <div class="summary-item">
+                                <h4>Total Loans Issued:</h4>
+                                <p class="amount">₱5,000,000.00</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Total Loans Repaid:</h4>
+                                <p class="amount">₱3,500,000.00</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Total Loans Outstanding:</h4>
+                                <p class="amount">₱1,500,000.00</p>
+                            </div>
+                        </div>
+                        <div class="report-footer">
+                          <a href="#" class="btn primary-btn">Generate Detailed Report</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h3>Credit Risk Report</h3>
+                            <!-- Add options for date range/filtering -->
+                        </div>
+                        <div class="report-content">
+                            <div class="risk-category">
+                                <h4>High Risk:</h4>
+                                <p>5 Borrowers</p>
+                            </div>
+                            <div class="risk-category">
+                                <h4>Medium Risk:</h4>
+                                <p>15 Borrowers</p>
+                            </div>
+                            <div class="risk-category">
+                                <h4>Low Risk:</h4>
+                                <p>30 Borrowers</p>
+                            </div>
+                        </div>
+                         <div class="report-footer">
+                          <a href="#" class="btn primary-btn">Generate Detailed Report</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h3>Fund Allocation Report</h3>
+                            <!-- Add options for date range/filtering -->
+                        </div>
+                        <div class="report-content">
+                            <div class="allocation-item">
+                                <h4>Business Loans:</h4>
+                                <p>₱2,000,000.00</p>
+                            </div>
+                            <div class="allocation-item">
+                                <h4>Personal Loans:</h4>
+                                <p>₱1,500,000.00</p>
+                            </div>
+                            <div class="allocation-item">
+                                <h4>Education Loans:</h4>
+                                <p>₱1,500,000.00</p>
+                            </div>
+                        </div>
+                         <div class="report-footer">
+                          <a href="#" class="btn primary-btn">Generate Detailed Report</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h3>Payment Collection Report</h3>
+                            <!-- Add options for date range/filtering -->
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Payment ID</th>
+                                        <th>Borrower</th>
+                                        <th>Loan ID</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PAY-2024-001</td>
+                                        <td>Kim Mingyu</td>
+                                        <td>LOAN-2024-101</td>
+                                        <td>₱2,500.00</td>
+                                        <td>Mar 22, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PAY-2024-002</td>
+                                        <td>Lee Jihoon</td>
+                                        <td>LOAN-2024-102</td>
+                                        <td>₱1,500.00</td>
+                                        <td>Mar 25, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PAY-2024-003</td>
+                                        <td>Jeon Wonwoo</td>
+                                        <td>LOAN-2024-103</td>
+                                        <td>₱500.00</td>
+                                        <td>Mar 27, 2025</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                         <div class="report-footer">
+                          <a href="#" class="btn primary-btn">Generate Detailed Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section notification-settings">
+                    <div class="section-header">
+                        <h3>Automated Notifications</h3>
+                    </div>
+                    <div class="notification-content">
+                        <p>Configure settings for loan approvals, payment reminders, and penalty notifications.</p>
+                        <button class="btn primary-btn">Configure Notifications</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Ensure proper viewport height on mobile devices
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        // Call on load and resize
+        window.addEventListener('load', setViewportHeight);
+        window.addEventListener('resize', setViewportHeight);
+    </script>
+</body>
+</html>

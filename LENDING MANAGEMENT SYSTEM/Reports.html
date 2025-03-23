@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Credova Lending</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="BorrowerDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="LoanManagementPage.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li>
+                    <a href="Payment.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="BorrowerAccount.html"><i class="fas fa-user-cog"></i> Account</a>
+                </li>
+                <li class="active">
+                    <a href="Reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+                </li>
+            </ul>
+
+            <li class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+            </li>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user">
+                        <img src="mingyu.jpg" alt="User">
+                        <span>Kim Mingyu</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <h2>Reports & Notifications</h2>
+
+                <div class="reports-container">
+                    <!-- Loan Summary Report -->
+                    <div class="section-card reports-section">
+                        <h3>Loan Summary Report</h3>
+                        <p>View a detailed summary of all loan activities.</p>
+                        <a href="#" class="action-btn">View Loan Summary Report</a>
+                    </div>
+
+                    <!-- Payment History Report -->
+                    <div class="section-card reports-section">
+                        <h3>Payment History Report</h3>
+                        <p>View a detailed report of payment history.</p>
+                        <a href="#" class="action-btn">View Payment History Report</a>
+                    </div>
+
+                    <!-- Fund Allocation Report -->
+                    <div class="section-card reports-section">
+                        <h3>Fund Allocation Report</h3>
+                        <p>Track how funds are being allocated across different loan products.</p>
+                        <a href="#" class="action-btn">View Fund Allocation Report</a>
+                    </div>
+
+                    <!-- Loan Status Report -->
+                    <div class="section-card reports-section">
+                        <h3>Loan Status Report</h3>
+                        <p>See the current status of all loans.</p>
+                        <a href="#" class="action-btn">View Loan Status Report</a>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="section-card notifications-section">
+                        <h3>Notifications</h3>
+                        <ul class="notifications-list">
+                            <li>Payment Reminder: Loan ID #123 due on 2024-11-15 <span class="notification-date">2024-11-10</span></li>
+                            <li>Loan Status Update: Loan ID #456 - Approved <span class="notification-date">2024-11-08</span></li>
+                            <li>Fund Allocation: ₱10,000 allocated to Microloans <span class="notification-date">2024-11-05</span></li>
+                            <li>Loan Status Update: Loan ID #789 - Overdue <span class="notification-date">2024-11-01</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

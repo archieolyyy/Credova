@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Management - Credova Lending</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .file-upload-container {
+            margin-top: 10px;
+        }
+
+        .file-upload-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .file-upload-container input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Important for width to include padding and border */
+        }
+
+        .form-group.other-purpose {
+            display: none; /* Hidden by default */
+        }
+
+        .form-group.other-purpose input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="CREDOVALOGO2.png" alt="Credova Logo">
+                <h1>Credova</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="BorrowerDashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li class="active">
+                    <a href="LoanManagementPage.html"><i class="fas fa-money-bill-wave"></i> Loan Management</a>
+                </li>
+                <li>
+                    <a href="payment.html"><i class="fas fa-credit-card"></i> Payments</a>
+                </li>
+                <li>
+                    <a href="BorrowerAccount.html"><i class="fas fa-user-cog"></i> Account</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+                </li>
+            </ul>
+
+            <li class="logout">
+                <a href="userselection.html"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+            </li>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user">
+                        <img src="mingyu.jpg" alt="User">
+                        <span>Kim Mingyu</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <h2>Loan Management</h2>
+                
+                <!-- Apply for New Loan -->
+                <div class="loan-application-section">
+                    <div class="section-header">
+                        <h3>Apply for a New Loan</h3>
+                    </div>
+                    <div class="loan-application-form">
+                        <form id="loanApplicationForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="loanAmount">Loan Amount (₱)</label>
+                                    <input type="number" id="loanAmount" name="loanAmount" min="5000" max="500000" placeholder="Enter amount" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loanPurpose">Loan Purpose</label>
+                                    <select id="loanPurpose" name="loanPurpose" required>
+                                        <option value="" disabled selected>Select purpose</option>
+                                        <option value="personal">Personal Loan</option>
+                                        <option value="business">Business Loan</option>
+                                        <option value="home_improvement">Home Improvement</option>
+                                        <option value="education">Education Loan</option>
+                                        <option value="medical">Medical Expenses</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group other-purpose">
+                                    <label for="otherLoanPurpose">Specify Other Purpose</label>
+                                    <input type="text" id="otherLoanPurpose" name="otherLoanPurpose" placeholder="Enter other loan purpose">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="loanTerm">Loan Term</label>
+                                    <select id="loanTerm" name="loanTerm" required>
+                                        <option value="" disabled selected>Select term</option>
+                                        <option value="3">3 Months</option>
+                                        <option value="6">6 Months</option>
+                                        <option value="12">12 Months</option>
+                                        <option value="24">24 Months</option>
+                                        <option value="36">36 Months</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interestRate">Interest Rate</label>
+                                    <select id="interestRate" name="interestRate" required>
+                                        <option value="" disabled selected>Select rate</option>
+                                        <option value="0.05">5% Monthly</option>
+                                        <option value="0.1">10% Monthly</option>
+                                        <option value="0.15">15% Monthly</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- File Upload Section -->
+                            <div class="form-row">
+                                <div class="file-upload-container">
+                                    <label for="document1">Proof of Income:</label>
+                                    <input type="file" id="document1" name="document1" accept=".pdf,.doc,.docx" required>
+                                </div>
+                                <div class="file-upload-container">
+                                    <label for="document2">Valid Government ID:</label>
+                                    <input type="file" id="document2" name="document2" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="loan-summary">
+                                    <h4>Loan Summary</h4>
+                                    <div class="summary-item">
+                                        <span>Monthly Payment:</span>
+                                        <span id="monthlyPayment">₱0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Total Repayment:</span>
+                                        <span id="totalRepayment">₱0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Interest Amount:</span>
+                                        <span id="interestAmount">₱0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="btn primary-btn">Submit Loan Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Active Loans -->
+                <div class="section active-loans">
+                    <div class="section-header">
+                        <h3>Active Loans</h3>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Loan ID</th>
+                                    <th>Amount</th>
+                                    <th>Interest Rate</th>
+                                    <th>Term</th>
+                                    <th>Monthly Payment</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LOAN-2025-001</td>
+                                    <td>₱15,000.00</td>
+                                    <td>5%</td>
+                                    <td>6 Months</td>
+                                    <td>₱2,500.00</td>
+                                    <td>Mar 10, 2025</td>
+                                    <td>Sep 10, 2025</td>
+                                    <td><span class="status approved">Active</span></td>
+                                    <td><a href="#" class="action-btn">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱10,000.00</td>
+                                    <td>10%</td>
+                                    <td>12 Months</td>
+                                    <td>₱1,000.00</td>
+                                    <td>Dec 05, 2024</td>
+                                    <td>Dec 05, 2025</td>
+                                    <td><span class="status approved">Active</span></td>
+                                    <td><a href="#" class="action-btn">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Loan Applications -->
+                <div class="section loan-applications">
+                    <div class="section-header">
+                        <h3>Loan Application History</h3>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Loan ID</th>
+                                    <th>Amount</th>
+                                    <th>Interest Rate</th>
+                                    <th>Term</th>
+                                    <th>Date Applied</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LOAN-2025-001</td>
+                                    <td>₱15,000.00</td>
+                                    <td>5%</td>
+                                    <td>6 Months</td>
+                                    <td>Mar 10, 2025</td>
+                                    <td><span class="status approved">Approved</span></td>
+                                    <td><a href="#" class="action-btn">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>LOAN-2025-002</td>
+                                    <td>₱50,000.00</td>
+                                    <td>15%</td>
+                                    <td>24 Months</td>
+                                    <td>Mar 15, 2025</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td><a href="#" class="action-btn">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>LOAN-2024-045</td>
+                                    <td>₱10,000.00</td>
+                                    <td>10%</td>
+                                    <td>12 Months</td>
+                                    <td>Dec 05, 2024</td>
+                                    <td><span class="status approved">Approved</span></td>
+                                    <td><a href="#" class="action-btn">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>LOAN-2024-039</td>
+                                    <td>₱25,000.00</td>
+                                    <td>10%</td>
+                                    <td>24 Months</td>
+                                    <td>Nov 15, 2024</td>
+                                    <td><span class="status rejected">Rejected</span></td>
+                                    <td><a href="#" class="action-btn">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Simple script for loan calculator functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loanAmountInput = document.getElementById('loanAmount');
+            const loanTermSelect = document.getElementById('loanTerm');
+            const interestRateSelect = document.getElementById('interestRate');
+            const loanPurposeSelect = document.getElementById('loanPurpose');
+            const otherPurposeInput = document.getElementById('otherLoanPurpose');
+
+            // Elements to update
+            const monthlyPaymentElement = document.getElementById('monthlyPayment');
+            const totalRepaymentElement = document.getElementById('totalRepayment');
+            const interestAmountElement = document.getElementById('interestAmount');
+
+            // Function to calculate loan details
+            function calculateLoan() {
+                const amount = parseFloat(loanAmountInput.value) || 0;
+                const term = parseInt(loanTermSelect.value) || 0;
+                const rate = parseFloat(interestRateSelect.value) || 0;
+
+                if (amount > 0 && term > 0 && rate > 0) {
+                    // Simple interest calculation (for demo purposes)
+                    const interest = amount * rate * term;
+                    const total = amount + interest;
+                    const monthly = total / term;
+
+                    // Update display
+                    monthlyPaymentElement.textContent = '₱' + monthly.toFixed(2);
+                    totalRepaymentElement.textContent = '₱' + total.toFixed(2);
+                    interestAmountElement.textContent = '₱' + interest.toFixed(2);
+                } else {
+                    // Reset if incomplete
+                    monthlyPaymentElement.textContent = '₱0.00';
+                    totalRepaymentElement.textContent = '₱0.00';
+                    interestAmountElement.textContent = '₱0.00';
+                }
+            }
+
+            // Add event listeners to form fields
+            loanAmountInput.addEventListener('input', calculateLoan);
+            loanTermSelect.addEventListener('change', calculateLoan);
+            interestRateSelect.addEventListener('change', calculateLoan);
+
+            // Form submission
+            const loanForm = document.getElementById('loanApplicationForm');
+            loanForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                //Basic validation before submission
+                if (!validateForm()) {
+                    return; // Prevent submission if validation fails
+                }
+
+                alert('Loan application submitted successfully! Your application will be reviewed shortly.');
+
+                 //Reset the form after submission
+                loanForm.reset();
+                //Manually reset the calculated values
+                monthlyPaymentElement.textContent = '₱0.00';
+                totalRepaymentElement.textContent = '₱0.00';
+                interestAmountElement.textContent = '₱0.00';
+                //Hide the other purpose input if it was visible
+                document.querySelector('.form-group.other-purpose').style.display = 'none';
+
+            });
+
+            // Loan Purpose Handling
+            loanPurposeSelect.addEventListener('change', function() {
+                if (loanPurposeSelect.value === 'other') {
+                    document.querySelector('.form-group.other-purpose').style.display = 'block';
+                    otherPurposeInput.setAttribute('required', 'required');  //Make 'other' input required
+                } else {
+                    document.querySelector('.form-group.other-purpose').style.display = 'none';
+                    otherPurposeInput.removeAttribute('required'); //Remove 'required' attribute
+                    otherPurposeInput.value = ''; //Clear input
+                }
+            });
+
+            function validateForm() {
+            let isValid = true;
+                // File validation (basic check if files are selected)
+                const document1 = document.getElementById('document1');
+                const document2 = document.getElementById('document2');
+
+                if (!document1.files.length) {
+                    alert('Please upload Proof of Income.');
+                    isValid = false;
+                    return isValid; // Exit if validation fails
+                }
+
+                if (!document2.files.length) {
+                    alert('Please upload Valid Government ID.');
+                    isValid = false;
+                    return isValid; // Exit if validation fails
+                }
+
+                // Additional validation logic can be added here, if needed
+                //such as file size checks and other input validation.
+
+                return isValid; // Return true if all validation passes
+            }
+
+        });
+    </script>
+</body>
+</html>
